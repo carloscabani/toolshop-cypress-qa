@@ -1,0 +1,19 @@
+{
+  "validUser": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "address": "Av. JFK",
+    "city": "Virginia Beach",
+    "state": "Virginia",
+    "country": "United States",
+    "postcode": "23451",
+    "payment": {
+      "accountName": "QA Test User",
+      "accountNumber": "123456789"
+    }
+  },
+  "invalidUser": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "wrongpassword"
+  }
+}
