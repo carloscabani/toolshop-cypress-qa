@@ -1,0 +1,9 @@
+{
+  "validMessage": {
+    "firstName": "Laura",
+    "lastName": "Tester",
+    "email": "laura.tester.qa@example.com",
+    "subject": "customer-service",
+    "message": "Hello, this is an automated QA test message sent from Cypress to verify the contact form."
+  }
+}
