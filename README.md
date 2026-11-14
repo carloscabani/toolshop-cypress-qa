@@ -118,7 +118,10 @@ Cypress is used to automate selected application workflows.
 
 **Integrante B – Melani**
 
-- `contact.cy.js`: Tests validation messages when submitting an empty contact form.
+- `contact.cy.js`: Sends a valid message using `contact.json` and checks the confirmation; also checks the validation messages of the empty form. *The valid-message test fails because of a real defect: the confirmation is never shown (TC-3.3-001, BUG-B-011).*
+- `login.cy.js`: Logs in with the test e-mail and a wrong password (`invalidUser` in `users.json`), checks the error message and that the user is not authenticated.
+- `search.cy.js`: Searches a catalog term from `products.json` and checks that results appear and at least one product name contains the term.
+- `cart.cy.js`: Adds a product with `cy.addProductToCart()`, checks it is in the cart, removes it and checks the cart is empty. *This test fails because of a real defect: the remove button does nothing (TC-3.6-001, BUG-A-002).* Screenshots before/after are saved in `cypress/screenshots/`.
 
 The automated specifications are maintained in their respective working branches and are subject to integration and cross-review.
 
@@ -126,8 +129,12 @@ The automated specifications are maintained in their respective working branches
 
 The project includes:
 
-- Custom login command: `cy.login(email, password)`.
+- Custom login command: `cy.login(email, password)` (Integrante A).
+- Custom contact form command: `cy.fillContactForm(data)` (Integrante B).
+- Custom add-to-cart command: `cy.addProductToCart(productName)` (Integrante B).
 - User fixture: `users.json`.
+- Contact form fixture: `contact.json`.
+- Search and cart fixture: `products.json`.
 - Cypress support configuration: `e2e.js`.
 - Application configuration: `cypress.config.js`.
 
@@ -179,10 +186,15 @@ toolshop-cypress-qa/
 │   │   ├── purchase.cy.js
 │   │   ├── registration.cy.js
 │   │   ├── api.cy.js
-│   │   └── contact.cy.js
+│   │   ├── contact.cy.js
+│   │   ├── login.cy.js
+│   │   ├── search.cy.js
+│   │   └── cart.cy.js
 │   │
 │   ├── fixtures/
-│   │   └── users.json
+│   │   ├── users.json
+│   │   ├── contact.json
+│   │   └── products.json
 │   │
 │   └── support/
 │       ├── commands.js
